@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+body {
+/*  background-color: rgb(143, 255, 152); */ 
+    background-color: rgb(50, 160, 65); 
+    font-family: "Open Sans";
+    font-size:larger;
+}
+
+main {
+    padding: 4%;
+    padding-top: 2%;
+}
+
+h2 {
+    display: flex;
+    align-items: center;      
+    justify-content: center;   
+    font-weight: bold;
+    text-align: center;
+}
+h3 {
+    text-align: center;
+    font-size: 1em;
+    color: black;
+    margin-top: 0;
+}
+h2 img {
+    width: 7vw;
+    margin-left: 1%;
+}
+
+
+ table {
+    width: 100%;
+    height: fit-content;
+    border-collapse: collapse;
+    background-color: whitesmoke;
+}
+td:first-child {
+    font-weight: bold;
+}
+
+th, td {
+    border: 1px solid #303030;
+    padding: 8px;
+    text-align: center;
+}
+
+
+th {
+    background-color: rgb(226, 220, 205);
+} 
+
+
+
