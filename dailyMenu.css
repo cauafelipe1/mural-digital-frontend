@@ -50,9 +50,13 @@ html{
     td{
         display: block;
     }
-    td::before{
-        content:attr(data-th)"";
+
+    #logo_ifc{
+        width:360px ;
+
+
     }
+
 }
 
 
