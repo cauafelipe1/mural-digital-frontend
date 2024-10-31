@@ -59,9 +59,6 @@ html{
 
 }
 
-
-
-
 body {
     /*  background-color: rgb(143, 255, 152); */ 
         background-color: #f5f5f5; 
@@ -121,6 +118,6 @@ body {
         background-color: lightskyblue;
     } 
     
-    
-    
-    
+    #choice_day{
+        margin-left: 40%;
+    }
