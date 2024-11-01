@@ -9,14 +9,28 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="scriptDiario.js"></script>
 <!--style resources - css-->
-<link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/image.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dailyMenu.css">
 </head>
+
 <body>
-    <h1>Escolha uma data para visualizar o cardápio</h1>
-    <input type="date" id="datePicker" />
-    <button id="fetchMenuButton">Buscar Cardápio</button>
+    <div class="bg-surface-color">
+        <nav class="container">
+            <img id="logo_ifc" src="img/logoifc.png" alt="">
+        </nav>
+    </div>
+
+    <div class="container">
+        <h2>Escolha uma data para visualizar o cardápio</h2>
+        <div id="choice_day"> 
+            <input type="date" id="datePicker" />
+            <button id="fetchMenuButton">Buscar Cardápio</button>
+        </div>
+    </div>    
+
 <main>
-    <h2>Cardápio da Semana <img src="img/image.png" alt="icon cardapio"></h2>   
+    <h2>Cardápio do Dia</h2>   
 
     <h3 id="selectedDateDisplay"></h3>
     
@@ -30,36 +44,37 @@
         </thead>
         <tbody>
             <tr>
-                <td>Carnes</td>
+                <td style="background-color: rgb(231, 118, 118);">Carnes:</td>
                 <td></td>
                
             </tr>
             <tr>
-                <td>Opção Vegana</td>
+                <td style="background-color: antiquewhite;">Opções Veganas:</td>
                 <td></td>
               
             </tr>
             <tr>
-                <td>Carboidratos</td>
+                <td style="background-color: burlywood;">Carboidratos:</td>
                 <td></td>
               
             </tr>
             <tr>
-                <td>Sucos</td>
+                <td style="background-color: wheat;">Sucos:</td>
                 <td></td>
                
             </tr>
             <tr>
-                <td>Salada</td>
+                <td style="background-color: thistle;">Salada:</td>
                 <td></td>
                
             </tr>
             <tr>
-                <td>Sobremesa</td>
+                <td>Sobremesa:</td>
                 <td></td>
             </tr>
         </tbody>
     </table>
 </main>
+
 </body>
 </html>

@@ -46,12 +46,14 @@ async function getMenu() {
     }
   }
   
-function formatDate(inputDate) {
-  const date = new Date(inputDate);
-  const day = String(date.getDate()+1).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0'); 
-  return `${day}-${month}-${year}`;
-}
+  function formatDate(inputDate) {
+    const date = new Date(inputDate);
+    const day = String(date.getDate() + 1).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  }
+  
 function extractDayAndMonth(inputDate) {
   const date = new Date(inputDate);
   const day = date.getDate()+1; 
