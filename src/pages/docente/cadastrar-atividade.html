@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/style/form.css">
+  <title>Docente</title>
+</head>
+<body>
+
+  <h2>Cadastro de Dados</h2>
+
+  <form id="uploadForm">
+
+    <label for="minDate">Data Mínima:</label>
+    <input type="date" id="minDate" name="minDate" required><br><br>
+
+    <label for="maxDate">Data Máxima:</label>
+    <input type="date" id="maxDate" name="maxDate" required><br><br>
+
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" required><br><br>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" required></textarea><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <pre id="response"></pre>
+
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", async function(event) {
+      event.preventDefault(); 
+
+      const minDate = document.getElementById("minDate").value;
+      const maxDate = document.getElementById("maxDate").value;
+      const titulo = document.getElementById("titulo").value;
+      const mensagem = document.getElementById("mensagem").value;
+
+      if (minDate > maxDate) {
+        alert("A data mínima deve ser menor ou igual à data máxima.");
+        return;
+      }
+
+      const data = {
+        minDate: minDate,
+        maxDate: maxDate,
+        titulo: titulo,
+        mensagem: mensagem
+      };
+
+      try {
+        const response = await fetch("http://localhost:8080/media/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        const responseData = await response.json();
+        document.getElementById("response").textContent = JSON.stringify(responseData, null, 2);
+
+        if (response.ok) {
+          alert("Dados enviados com sucesso!");
+        } else {
+          alert("Erro ao enviar os dados.");
+        }
+
+      } catch (error) {
+        console.error("Erro ao enviar os dados:", error);
+        alert("Erro ao enviar os dados.");
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+<!--FAZER UM FORMS E LIGAR COM UMA FUNÇÃO QUE FAÇA O POST DAS ATIVIDADES-->

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Semanal</title>
+
+<!--script resources - js & axios-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="script.js"></script>
+<!--style resources - css-->
+    <link rel="icon" href="/src/images/image.png">
+    <link rel="stylesheet" href="/src/style/cardapio/style.css">
+    <link rel="stylesheet" href="/src/style/cardapio/config.css">
+
+</head>
+<body>
+
+<main>
+    <div class="bg-surface-color">
+        <nav id="container">
+            <img style="width: 400px; height: 100px;" src="/src/images/logoifc.png" alt="icon cardapio">
+        </nav>
+    </div>
+
+    <h2>Cardápio Semanal </h2>   
+<!--note: remember to generalize-->
+    <h3>28-01 de Outubro</h3>
+        <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="visibility:hidden; border: none;"></th>
+                    <th>Segunda-feira</th>
+                    <th>Terça-feira</th>
+                    <th>Quarta-feira</th>
+                    <th>Quinta-feira</th>
+                    <th>Sexta-feira</th>
+                </tr>
+            </thead>          
+        
+
+
+            <tbody>
+                <tr>
+                    <td data-th="Segunda-feira" style="background-color: rgb(231, 118, 118);"><span class="hidden_word">Carnes</span></td>
+                    <td data-th="Carnes"></td> 
+                    <td data-th="Opções Veganas"></td>
+                    <td data-th="Carboidratos"></td>
+                    <td data-th="Sucos"></td>
+                    <td data-th="Salada"></td>
+                    <td data-th="Sobremesa"></td>
+
+                </tr>
+                <tr>
+                    <td data-th="Terça-Feira" style="background-color: antiquewhite;"><span class="hidden_word">Opções Veganas</span></td>
+                    <td data-th="Carnes" ></td>
+                    <td data-th="Opções Veganas"></td>
+                    <td data-th="Carboidratos"></td>
+                    <td data-th="Sucos"></td>
+                    <td data-th="Salada"></td>
+                    <td data-th="Sobremesa"></td>
+
+                </tr>
+                <tr>
+                    <td data-th="Quarta-Feira"  style="background-color: burlywood;"><span class="hidden_word">Carboidratos</span></td>
+                    <td data-th="Carnes"> </td>
+                    <td data-th="Opções Veganas"> </td>
+                    <td data-th="Carboidratos"> </td>
+                    <td data-th="Sucos"> </td>
+                    <td data-th="Salada"> </td>
+                    <td data-th="Sobremesa"></td>
+
+                </tr>
+                <tr>
+                    <td data-th="Quinta-Feira" style="background-color: wheat;"><span class="hidden_word">Sucos</span></td>
+                    <td data-th="Carnes">  </td>
+                    <td data-th="Opções Veganas">  </td>
+                    <td data-th="Carboidratos">  </td>
+                    <td data-th="Sucos">  </td>
+                    <td data-th="Salada">  </td>
+                    <td data-th="Sobremesa"></td>
+
+                </tr>
+                <tr>
+                    <td data-th="Sexta-Feira"  style="background-color: thistle;"><span class="hidden_word">Salada</span></td>
+                    <td data-th="Carnes" ></td>
+                    <td data-th="Opções Veganas" ></td>
+                    <td data-th="Carboidratos" ></td>
+                    <td data-th="Sucos" ></td>
+                    <td data-th="Salada" ></td>
+                    <td data-th="Sobremesa"></td>
+
+                </tr>
+                <tr class="hidden_word">
+                    <td data-th="">Sobremesa</td>
+                    <td data-th=""></td>
+                    <td data-th=""></td>
+                    <td data-th=""></td>
+                    <td data-th=""></td>
+                    <td data-th=""></td>
+                    <td data-th=""></td>
+
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+</main>
+</body>
+</html>
+<!--- tem que fazer aqui a funcao que troca de tela 
+-->
