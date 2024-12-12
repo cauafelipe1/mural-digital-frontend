@@ -3,8 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="global.css">
     <title>IFC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #003366;
+            padding: 15px 0;
+            text-align: center;
+            color: white;
+        }
+        header .logo {
+            width: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        .main-image {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #003366;
+            margin-bottom: 5px;
+        }
+        h4 {
+            color: #666;
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .links a {
+            text-decoration: none;
+            padding: 15px 25px;
+            background-color: #5cb85c;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 60%;
+            text-align: center;
+        }
+        .links a:hover {
+            background-color: #4cae4c;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #003366;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header class="bg-surface-color">
@@ -14,15 +83,14 @@
     <main>
         <section class="container">
             <img src="/images/alunoimg.jpg" alt="aluno" class="main-image">
-            <h3>"NOME DO ALUNO"</h3>
             <h4>Aluno</h4>
         </section>
         <div class="container flex-container">
             <div class="links">
-                <a href="">Ver Notícias</a>
-                <a href="">Ver Cardápio do Restaurante</a>
-                <a href="">Ver Sabádos Letivos</a>
-                <a href="">Sair</a>
+                <a href="#" id="verNoticias">Ver Notícias</a>
+                <a href="#" id="verCardapio">Ver Cardápio do Restaurante</a>
+                <a href="#" id="verSabados">Ver Sábados Letivos</a>
+                <a href="#" id="sair">Sair</a>
             </div>
         </div>
     </main>
@@ -30,5 +98,7 @@
     <footer>
         <p>Instituto Federal Catarinense</p>
     </footer>
+
+
 </body>
 </html>

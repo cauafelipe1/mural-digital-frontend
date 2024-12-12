@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrossel de Imagens</title>
+    <link rel="stylesheet" href="/src/style/sisae/feed-sisae.css">
 </head>
 <body>
-    <!-- aqui parecido com o cardapio puxar a funcao get e mostrar  -->
-    <!--- TITULO -->
-    <!--- MENSAGEM -->
-    <!--- FOTO -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script src="/src/services/sisae/feed-sisae.js"></script>
 </body>
 </html>

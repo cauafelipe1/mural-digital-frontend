@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFC</title>
+    <link rel="stylesheet" href="/src/style/sisae/menu-sisae.css">
+</head>
+<body>
+    <header class="bg-surface-color">
+        <h1>Instituto Federal Catarinense</h1>
+    </header>
+
+    <main>
+        <section class="container">
+            <h3>"NOME DO Servidor"</h3>
+            <h4>Sisae</h4>
+        </section>
+        <div class="container flex-container">
+            <div class="links">
+                <a href="#" id="cadastrarEvento">Cadastrar Evento, Notícia</a>
+                <a href="#" id="sair">Sair</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Instituto Federal Catarinense</p>
+    </footer>
+
+    <script>
+        document.getElementById("cadastrarEvento").addEventListener("click", (event) => {
+            event.preventDefault();
+            window.location.href = "cadastrar-evento.html";
+        });
+
+        document.getElementById("sair").addEventListener("click", (event) => {
+            event.preventDefault();
+            localStorage.clear();
+            alert("Você saiu com sucesso.");
+            window.location.href = "/src/pages/login/login.html"; // Redirecionar para a página inicial
+        });
+    </script>
+</body>
+</html>

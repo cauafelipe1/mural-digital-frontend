@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/style/global.css">
+
     <title>IFC</title>
+    <link rel="stylesheet" href="/src/style/docente/menu-docente.css">
+    <script src="/src/services/docente/scriptDocente.js"></script>
 </head>
 <body>
     <header class="bg-surface-color">
-       
+        <h1>Instituto Federal Catarinense</h1>
     </header>
 
     <main>
         <section class="container">
-            <h3>"NOME DO PROFESSOR"</h3>
+            <h3 id="nomeProfessor">Nome do Professor</h3>
             <h4>Docente</h4>
         </section>
         <div class="container flex-container">
             <div class="links">
-                <a href="">Cadatrar Atividade</a>
-                <a href="">Sair</a>
+                <a href="#" id="cadastrarAtividade">Cadastrar Atividade</a>
+                <a href="#" id="sair">Sair</a>
             </div>
         </div>
     </main>
@@ -27,5 +29,26 @@
     <footer>
         <p>Instituto Federal Catarinense</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+	const professor = localStorage.getItem("nomeProfessor") || "Nome do Professor";
+	document.getElementById("nomeProfessor").textContent = professor;
+
+	// Navegar para cadastrar-atividade.html
+	document.getElementById("cadastrarAtividade").addEventListener("click", (event) => {
+		event.preventDefault();
+		window.location.href = "cadastrar-atividade.html";
+	});
+
+	// Sair e limpar Local Storage
+	document.getElementById("sair").addEventListener("click", (event) => {
+		event.preventDefault();
+		localStorage.clear();
+		alert("Você saiu com sucesso.");
+		window.location.href = "/src/pages/login/login.html"; // Redirecionar para a página inicial
+	});
+});
+    </script>
 </body>
 </html>

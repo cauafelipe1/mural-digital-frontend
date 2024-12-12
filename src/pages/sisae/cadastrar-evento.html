@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enviar Imagem para API</title>
-  <script src="/src/services/sisae/scriptSisae.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Imagem para API</title>
+    <link rel="stylesheet" href="/src/style/sisae/cadastrar-evento.css">
+    <script src="/src/services/sisae/scriptSisae.js" defer></script> <!-- Atribuindo defer para carregar o script após o HTML -->
 </head>
 <body>
+    <div class="form-container">
+        <h2>Enviar Mídia</h2>
+        <form id="uploadForm">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
 
-  <h2>Enviar Mídia</h2>
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
 
-  <form id="uploadForm">
-    <label for="titulo">Título:</label>
-    <input type="text" id="titulo" name="titulo" required><br><br>
+            <label for="imagem">Selecione a Imagem:</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*" required>
 
-    <label for="mensagem">Mensagem:</label>
-    <textarea id="mensagem" name="mensagem" required></textarea><br><br>
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
 
-    <label for="imagem">Selecione a Imagem:</label>
-    <input type="file" id="imagem" name="imagem" accept="image/*" required><br><br>
-
-    <button type="submit">Enviar</button>
-  </form>
-
-  <pre id="response"></pre>
-
-  
+            <button type="submit">Enviar</button>
+        </form>
+        <pre id="response"></pre>
+    </div>
 </body>
 </html>

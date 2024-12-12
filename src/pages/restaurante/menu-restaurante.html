@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/src/style/restaurante/style-restaurante.css">
+    <title>Menu do Restaurante</title>
+
+</head>
+<body>
+    <header>
+        <h1>Menu do Restaurante</h1>
+    </header>
+
+    <main>
+        <div class="menu-container">
+            <a href="#" id="cadastrarCardapio">Cadastrar Cardápio</a>
+            <a href="#" id="sair">Sair</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Instituto Federal Catarinense</p>
+    </footer>
+
+    <script>
+        document.getElementById("cadastrarCardapio").addEventListener("click", (event) => {
+            event.preventDefault();
+            window.location.href = "cadastro-cardapio.html";
+        });
+
+        document.getElementById("sair").addEventListener("click", (event) => {
+            event.preventDefault();
+            localStorage.clear();
+            alert("Você saiu com sucesso.");
+            window.location.href = "/src/pages/login/login.html"; // Redirecionar para a página inicial
+        });
+    </script>
+</body>
+</html>

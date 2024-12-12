@@ -1,15 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!-- Fazer aqui um tela estatica com o resultado da busca da api que tem as atividades e nao esquecer de mudar de tela depois de alguns segundos -->
-    <!--- TITULO-->
-    <!--- mensagem-->
-    <!--- turma-->
-    <!--- servidor -->
-</body>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrossel de Notícia Docente</title>
+    <link rel="stylesheet" href="/src/style/docente/feed-noticias.css" />
+  </head>
+  <body>
+    <div class="carousel-container">
+      <div class="carousel">
+        <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
+      </div>
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+    let currentSlide = 0;
+
+// Função para buscar os dados da API
+async function fetchNoticiaDocente() {
+    try {
+        const response = await fetch('http://127.0.0.1:8080/api/NoticiaDocente/listAlls');
+        const data = await response.json();
+        displayCarouselItems(data);
+    } catch (error) {
+        console.error('Erro ao buscar dados da API:', error);
+    }
+}
+
+// Função para exibir os itens no carrossel
+function displayCarouselItems(items) {
+    const carousel = document.querySelector('.carousel');
+    carousel.innerHTML = '';  // Limpar carrossel existente
+
+    items.forEach(item => {
+        const carouselItem = document.createElement('div');
+        carouselItem.classList.add('carousel-item');
+
+        carouselItem.innerHTML = `
+            <h2>${item.titulo}</h2>
+            <p><strong>Data Início:</strong> ${new Date(item.dataInicio).toLocaleString()}</p>
+            <p><strong>Data Final:</strong> ${new Date(item.dataFinal).toLocaleString()}</p>
+            <p><strong>Mensagem:</strong> ${item.mensagem}</p>
+            <p class="turma">${item.turmaDocente.turma} - ${item.turmaDocente.disciplina}</p>
+            <p><strong>Docente:</strong> ${item.loginServidor.name}</p>
+        `;
+        carousel.appendChild(carouselItem);
+    });
+}
+
+// Função para mudar o slide
+function moveSlide(step) {
+    const slides = document.querySelectorAll('.carousel-item');
+    currentSlide = (currentSlide + step + slides.length) % slides.length;
+    document.querySelector('.carousel').style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+// Carregar dados ao iniciar a página
+fetchNoticiaDocente();
+
+    </script>
+  </body>
 </html>

@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/src/style/docente/cadastrar-atividade.css">
+    <script src="/src/services/docente/scriptDocente.js"></script>
 </head>
 <body>
-    <!---
-        Fazer aqui um forms e ligar com uma funcao que faca o post das atividade
-    -->
+    <div class="form-container">
+        <h2>Formulário de Projeto</h2>
+        <form id="projectForm">
+            <label for="dataInicio">Data de Início:</label>
+            <input type="datetime-local" id="dataInicio" name="dataInicio" value="2024-12-01T10:00:00" required>
+
+            <label for="dataFinal">Data Final:</label>
+            <input type="datetime-local" id="dataFinal" name="dataFinal" value="2024-12-01T12:00:00" required>
+
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" value="Projeto" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required>a fazer</textarea>
+
+            <label for="turmaDocente">ID da Turma Docente:</label>
+            <input type="text" id="turmaDocente" name="turmaDocente" value="1" required>
+
+            <label for="idServidor">ID do Servidor:</label>
+            <input type="text" id="idServidor" name="idServidor" value="2" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>

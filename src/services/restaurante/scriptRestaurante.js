@@ -1,14 +1,31 @@
-/*** fazer uma funcao post http://127.0.0.1:8080/api/cardapio
- * 
- * {
-    "carnes": ["carne bovina, carne suína, frango"],
-    "opcoes_vegana": ["salada vegana, tofu, legumes"],
-    "sucos": ["suco de laranja, suco de limão, suco de acerola"],
-    "saladas": ["salada caesar, salada verde, salada de frutas"],
-    "carboidratos": ["arroz, feijão, batata frita"],
-		"sobremesa": ["pudin"],
-    "data": "2024-10-24"
+function enviarDados() {
+  const cardapio = {
+      carnes: document.getElementById('carnes').value,
+      opcoes_vegana: document.getElementById('opcoesVeganas').value,
+      sucos: document.getElementById('sucos').value,
+      saladas: document.getElementById('saladas').value,
+      carboidratos: document.getElementById('carboidratos').value,
+      sobremesa: document.getElementById('sobremesa').value,
+      data: document.getElementById('data').value
+  };
+
+  fetch('http://127.0.0.1:8080/api/cardapio/cadastrar', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(cardapio)
+  })
+  .then(response => {
+      if (response.ok) {
+          alert('Cardápio enviado com sucesso!');
+      } else {
+        console.log(response.ok)
+          alert('Erro ao enviar o cardápio.');
+      }
+  })
+  .catch(error => {
+      console.error('Erro:', error);
+      alert('Erro ao enviar o cardápio.');
+  });
 }
- * 
- * 
- */
