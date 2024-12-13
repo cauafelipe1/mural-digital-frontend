@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IFC</title>
-    <link rel="stylesheet" href="/src/style/sisae/menu-sisae.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/src/style/sisae/menu-sisae.css" />
+  </head>
+  <body>
     <header class="bg-surface-color">
-        <h1>Instituto Federal Catarinense</h1>
+      <h1>Instituto Federal Catarinense</h1>
     </header>
 
     <main>
-        <section class="container">
-            <h3>"NOME DO Servidor"</h3>
-            <h4>Sisae</h4>
-        </section>
-        <div class="container flex-container">
-            <div class="links">
-                <a href="#" id="cadastrarEvento">Cadastrar Evento, Notícia</a>
-                <a href="#" id="sair">Sair</a>
-            </div>
+      <section class="container">
+        <h3 id="nomeservidor">"NOME DO Servidor"</h3>
+        <h4>Sisae</h4>
+      </section>
+      <div class="container flex-container">
+        <div class="links">
+          <a href="#" id="cadastrarEvento">Cadastrar Evento, Notícia</a>
+          <a href="#" id="sair">Sair</a>
         </div>
+      </div>
     </main>
 
     <footer>
-        <p>Instituto Federal Catarinense</p>
+      <p>Instituto Federal Catarinense</p>
     </footer>
 
     <script>
-        document.getElementById("cadastrarEvento").addEventListener("click", (event) => {
-            event.preventDefault();
-            window.location.href = "cadastrar-evento.html";
+      document
+        .getElementById("cadastrarEvento")
+        .addEventListener("click", (event) => {
+          event.preventDefault();
+          window.location.href = "cadastrar-evento.html";
         });
 
-        document.getElementById("sair").addEventListener("click", (event) => {
-            event.preventDefault();
-            localStorage.clear();
-            alert("Você saiu com sucesso.");
-            window.location.href = "/src/pages/login/login.html"; // Redirecionar para a página inicial
-        });
+      document.getElementById("sair").addEventListener("click", (event) => {
+        event.preventDefault();
+        localStorage.clear();
+        alert("Você saiu com sucesso.");
+        window.location.href = "/src/pages/login/login.html"; // Redirecionar para a página inicial
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const userData = localStorage.getItem("userData");
+
+        if (userData) {
+          try {
+            const userObject = JSON.parse(userData);
+
+            if (userObject.name) {
+              const nomeServidorElement =
+                document.getElementById("nomeservidor");
+              if (nomeServidorElement) {
+                nomeServidorElement.textContent = userObject.name;
+              } else {
+                console.error('Elemento com ID "nomeservidor" não encontrado.');
+              }
+            } else {
+              console.error('Campo "nome" não encontrado no objeto userData.');
+            }
+          } catch (error) {
+            console.error("Erro ao processar o JSON do localStorage:", error);
+          }
+        } else {
+          console.error('Item "userData" não encontrado no localStorage.');
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

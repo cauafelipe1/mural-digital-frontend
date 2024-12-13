@@ -1,3 +1,4 @@
+
 /*
 npm install axios
 npm init
@@ -6,10 +7,11 @@ npm init
 //const axios = require('axios')
 
 //insert API url here
-const url = "http://127.0.0.1:8080/api/cardapio/week/2024-10-28";
+const url = "http://127.0.0.1:8080/api/cardapio/week/2024-12-09";
 
 async function getMenu() {
   let response = await axios.get(url);
+  
   const menus = response.data; // Supondo que a resposta é uma lista de menus
 
   // Função para preencher as células da tabela

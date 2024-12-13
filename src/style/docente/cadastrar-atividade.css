@@ -10,11 +10,11 @@ body {
 }
 .form-container {
     background: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
 }
 h2 {
     text-align: center;
@@ -34,7 +34,8 @@ input[type="text"], textarea, input[type="datetime-local"] {
 }
 button {
     width: 100%;
-    padding: 10px;
+    margin-top: 20px;
+    padding: 25px;
     background-color: #5cb85c;
     color: white;
     border: none;
@@ -45,3 +46,41 @@ button {
 button:hover {
     background-color: #4cae4c;
 }
+/* Estilização do rótulo */
+label[for="turmaDocente"] {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Estilização do menu suspenso */
+#turmaDocente {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito ao focar */
+#turmaDocente:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+}
+
+/* Opções do menu */
+#turmaDocente option {
+    padding: 10px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+}
+
+  

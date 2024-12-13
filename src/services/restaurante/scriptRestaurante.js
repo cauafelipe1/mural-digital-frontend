@@ -19,6 +19,7 @@ function enviarDados() {
   .then(response => {
       if (response.ok) {
           alert('Cardápio enviado com sucesso!');
+          
       } else {
         console.log(response.ok)
           alert('Erro ao enviar o cardápio.');

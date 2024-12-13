@@ -36,11 +36,12 @@ document.getElementById("uploadForm").addEventListener("submit", async function(
       });
 
       const responseData = await response.json();
-      document.getElementById("response").textContent = JSON.stringify(responseData, null, 2);
-
-      // Verificando se a resposta foi bem-sucedida
+    
+     
       if (response.ok) {
         alert("Imagem enviada com sucesso!");
+        window.location.href = "/src/pages/sisae/menu-sisae.html";
+
       } else {
         alert("Erro ao enviar a imagem.");
       }

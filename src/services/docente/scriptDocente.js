@@ -50,8 +50,8 @@ document.getElementById("projectForm").addEventListener("submit", async (event) 
         });
 
         if (response.ok) {
-            
             alert("Projeto cadastrado com sucesso!");
+            window.location.href = "/src/pages/docente/telaDocente.html";
         } else {
             const responseBody = await response.json();
             console.log("Erro da API:", responseBody);

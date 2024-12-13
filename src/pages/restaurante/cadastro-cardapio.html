@@ -93,6 +93,7 @@
 
                 if (response.ok) {
                     alert("Cardápio enviado com sucesso!");
+                    window.location.href = "/src/pages/restaurante/menu-restaurante.html";
                 } else {
                     const responseBody = await response.json();
                     console.log("Erro da API:", responseBody);

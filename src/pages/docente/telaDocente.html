@@ -49,6 +49,31 @@
 		window.location.href = "/src/pages/login/login.html"; // Redirecionar para a página inicial
 	});
 });
+document.addEventListener("DOMContentLoaded", () => {
+        const userData = localStorage.getItem("userData");
+
+        if (userData) {
+          try {
+            const userObject = JSON.parse(userData);
+
+            if (userObject.name) {
+              const nomeServidorElement =
+                document.getElementById("nomeProfessor");
+              if (nomeServidorElement) {
+                nomeServidorElement.textContent = userObject.name;
+              } else {
+                console.error('Elemento com ID "nomeservidor" não encontrado.');
+              }
+            } else {
+              console.error('Campo "nome" não encontrado no objeto userData.');
+            }
+          } catch (error) {
+            console.error("Erro ao processar o JSON do localStorage:", error);
+          }
+        } else {
+          console.error('Item "userData" não encontrado no localStorage.');
+        }
+      });
     </script>
 </body>
 </html>
