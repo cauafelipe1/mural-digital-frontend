@@ -5,42 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Cardápio</title>
     <link rel="stylesheet" href="/src/style/restaurante/cadastro-cardapio.css">
-    <script src="/src/services/restaurante/scriptRestaurante.js"></script>
 </head>
 <body>
     <div class="form-container">
         <h2>Cardápio</h2>
         <form id="cardapioForm">
             <label for="carnes">Carnes:</label>
-            <select id="carnes" name="carnes">
+            <select id="carnes" name="carnes" multiple>
                 <option value="carne bovina">Carne Bovina</option>
                 <option value="carne suína">Carne Suína</option>
                 <option value="frango">Frango</option>
             </select>
 
             <label for="opcoesVeganas">Opções Veganas:</label>
-            <select id="opcoesVeganas" name="opcoesVeganas">
+            <select id="opcoesVeganas" name="opcoesVeganas" multiple>
                 <option value="salada vegana">Salada Vegana</option>
                 <option value="tofu">Tofu</option>
                 <option value="legumes">Legumes</option>
             </select>
 
             <label for="sucos">Sucos:</label>
-            <select id="sucos" name="sucos">
+            <select id="sucos" name="sucos" multiple>
                 <option value="suco de laranja">Suco de Laranja</option>
                 <option value="suco de limão">Suco de Limão</option>
                 <option value="suco de acerola">Suco de Acerola</option>
             </select>
 
             <label for="saladas">Saladas:</label>
-            <select id="saladas" name="saladas">
+            <select id="saladas" name="saladas" multiple>
                 <option value="salada caesar">Salada Caesar</option>
                 <option value="salada verde">Salada Verde</option>
                 <option value="salada de frutas">Salada de Frutas</option>
             </select>
 
             <label for="carboidratos">Carboidratos:</label>
-            <select id="carboidratos" name="carboidratos">
+            <select id="carboidratos" name="carboidratos" multiple>
                 <option value="arroz">Arroz</option>
                 <option value="feijão">Feijão</option>
                 <option value="batata frita">Batata Frita</option>
@@ -54,8 +53,56 @@
             <label for="data">Data:</label>
             <input type="date" id="data" name="data" value="2024-10-24">
 
-            <button type="button" onclick="enviarDados()">Enviar</button>
+            <button type="submit">Enviar</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById("cardapioForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            // Coletando os valores selecionados como arrays
+            const carnes = Array.from(document.getElementById("carnes").selectedOptions).map(option => option.value);
+            const opcoesVeganas = Array.from(document.getElementById("opcoesVeganas").selectedOptions).map(option => option.value);
+            const sucos = Array.from(document.getElementById("sucos").selectedOptions).map(option => option.value);
+            const saladas = Array.from(document.getElementById("saladas").selectedOptions).map(option => option.value);
+            const carboidratos = Array.from(document.getElementById("carboidratos").selectedOptions).map(option => option.value);
+            const sobremesa = Array.from(document.getElementById("sobremesa").selectedOptions).map(option => option.value);
+            const data = document.getElementById("data").value;
+
+            const payload = {
+                carnes,  // Agora é um array
+                opcoes_vegana: opcoesVeganas,  // Agora é um array
+                sucos,  // Agora é um array
+                saladas,  // Agora é um array
+                carboidratos,  // Agora é um array
+                sobremesa,  // Agora é um array
+                data
+            };
+
+            console.log(payload);
+
+            try {
+                const response = await fetch("http://127.0.0.1:8080/api/cardapio/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    alert("Cardápio enviado com sucesso!");
+                } else {
+                    const responseBody = await response.json();
+                    console.log("Erro da API:", responseBody);
+                    alert("Erro ao enviar o cardápio. Tente novamente.");
+                }
+            } catch (error) {
+                console.error("Erro ao enviar o cardápio:", error);
+                alert("Erro de conexão com a API.");
+            }
+        });
+    </script>
 </body>
 </html>

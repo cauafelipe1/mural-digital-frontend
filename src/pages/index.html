@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternar entre Páginas</title>
+    <style>
+        /* Estilo para centralizar o iframe na página */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+  
+
+    <iframe id="contentFrame" src="/src/pages/cardapio/telaCardapioSemanal.html"></iframe>
+
+    <script>
+        // Array de caminhos de arquivos HTML
+        const pages = [
+            '/src/pages/cardapio/telaCardapioSemanal.html',
+            '/src/pages/docente/feed-docente.html',
+            '/src/pages/sisae/feed-sisae.html'
+        ];
+
+        let currentPage = 0;
+
+        // Função para alternar entre páginas dentro do iframe
+        function autoSwitchPages() {
+            const iframe = document.getElementById('contentFrame');
+
+            // Troca o conteúdo do iframe
+            iframe.src = ''; // Primeiro, limpa o conteúdo do iframe
+            iframe.src = pages[currentPage]; // Atribui a nova página ao iframe
+
+            // Atualiza o índice da página
+            currentPage = (currentPage + 1) % pages.length;
+        }
+
+        // Inicia a alternância automática a cada 30 segundos (30000 milissegundos)
+        setInterval(autoSwitchPages, 3000); // 30 segundos
+    </script>
+</body>
+</html>

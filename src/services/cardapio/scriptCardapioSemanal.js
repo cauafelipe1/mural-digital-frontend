@@ -6,7 +6,7 @@ npm init
 //const axios = require('axios')
 
 //insert API url here
-const url = "http://127.0.0.1:8080/api/cardapio/week/2024-10-20";
+const url = "http://127.0.0.1:8080/api/cardapio/week/2024-10-28";
 
 async function getMenu() {
   let response = await axios.get(url);

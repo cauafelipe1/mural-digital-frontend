@@ -12,7 +12,7 @@ document.getElementById("uploadForm").addEventListener("submit", async function(
     return;
   }
 
-  // Usando FileReader para ler a imagem como base64
+
   const reader = new FileReader();
   reader.onloadend = async function () {
     // Remove o prefixo 'data:image/png;base64,' ou 'data:image/jpeg;base64,' para pegar apenas a parte base64
@@ -24,7 +24,7 @@ document.getElementById("uploadForm").addEventListener("submit", async function(
       imagem: imagemBase64,
       data: data // Incluindo a data no corpo do pedido
     };
-
+    console.log(requestData)
     try {
       // Enviando os dados para a API
       const response = await fetch("http://127.0.0.1:8080/api/sisae/cadastrar", {

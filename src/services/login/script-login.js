@@ -24,12 +24,12 @@ function handleCredentialResponse(response) {
           console.log("Dados do usuário:", userData);
           localStorage.setItem("userData", JSON.stringify(userData));
 
-          if (userData === "DOCENTE") {
+          if (userData.tipoServidor === "DOCENTE") {
               window.location.href = "/src/pages/docente/telaDocente.html";
-          } else if (userData === "RESTAURANTE") {
-              window.location.href = "menu-restaurante.html";
-          } else if (userData === "SISAE") {
-              window.location.href = "menu-sisae.html";
+          } else if (userData.tipoServidor === "RESTAURANTE") {
+              window.location.href = "/src/pages/restaurante/menu-restaurante.html";
+          } else if (userData.tipoServidor === "SISAE") {
+              window.location.href = "/src/pages/sisae/menu-sisae.html";
           } else {
               alert("Perfil não reconhecido.");
           }

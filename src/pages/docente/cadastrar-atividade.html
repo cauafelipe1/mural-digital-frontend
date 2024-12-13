@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulário de Projeto</title>
     <link rel="stylesheet" href="/src/style/docente/cadastrar-atividade.css">
-    <script src="/src/services/docente/scriptDocente.js"></script>
 </head>
 <body>
     <div class="form-container">
@@ -24,13 +23,19 @@
             <textarea id="mensagem" name="mensagem" required>a fazer</textarea>
 
             <label for="turmaDocente">ID da Turma Docente:</label>
-            <input type="text" id="turmaDocente" name="turmaDocente" value="1" required>
-
-            <label for="idServidor">ID do Servidor:</label>
-            <input type="text" id="idServidor" name="idServidor" value="2" required>
+            <select id="turmaDocente" name="turmaDocente" required>
+                <option value="1">INFO101</option>
+                <option value="2">INFO102</option>
+                <option value="3">INFO201</option>
+                <option value="4">INFO202</option>
+                <option value="5">INFO301</option>
+                <option value="6">INFO302</option>
+            </select>
 
             <button type="submit">Enviar</button>
         </form>
     </div>
+
+    <script src="/src/services/docente/scriptDocente.js"></script>
 </body>
 </html>

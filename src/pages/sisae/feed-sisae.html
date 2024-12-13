@@ -5,6 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrossel de Imagens</title>
     <link rel="stylesheet" href="/src/style/sisae/feed-sisae.css">
+    <style>
+        /* Estilos do carrossel */
+        .carousel-container {
+            position: relative;
+            width: 80%; /* Define a largura do carrossel */
+            margin: 0 auto; /* Centraliza o carrossel na página */
+            overflow: hidden; /* Esconde as imagens que saem da área do carrossel */
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Estilo das imagens dentro do carrossel */
+        .carousel img {
+            width: 100%; /* Ajusta a imagem para o tamanho máximo do carrossel */
+            max-width: 500px; /* Limita a largura máxima da imagem */
+            height: auto; /* Mantém a proporção das imagens */
+            object-fit: cover; /* Cobre a área do container sem distorcer */
+        }
+
+        /* Estilos dos botões de navegação */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
 </head>
 <body>
     <div class="carousel-container">

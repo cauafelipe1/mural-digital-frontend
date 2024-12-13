@@ -43,7 +43,7 @@ function displayCarouselItems(items) {
             <p><strong>Data Início:</strong> ${new Date(item.dataInicio).toLocaleString()}</p>
             <p><strong>Data Final:</strong> ${new Date(item.dataFinal).toLocaleString()}</p>
             <p><strong>Mensagem:</strong> ${item.mensagem}</p>
-            <p class="turma">${item.turmaDocente.turma} - ${item.turmaDocente.disciplina}</p>
+            <p class="turma">${item.turmaDocente.turma}
             <p><strong>Docente:</strong> ${item.loginServidor.name}</p>
         `;
         carousel.appendChild(carouselItem);
